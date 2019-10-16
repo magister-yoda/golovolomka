@@ -3,11 +3,9 @@ var random = require("./random");
 
 module.exports = class Trade extends LiveForm {
     constructor(x, y) {
-        this.x = x;
-        this.energiya = 50;
-        this.y = y;
-        this.directions = [];
-    }
+        super(x,y); 
+            this.multiply = 0;
+        }
     getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],

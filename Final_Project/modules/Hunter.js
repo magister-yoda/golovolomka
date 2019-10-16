@@ -4,11 +4,9 @@ var random = require("./random");
 module.exports = class Hunter extends LiveForm
 {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.jizn = 60
-        this.directions = [];
-    }
+        super(x,y); 
+            this.multiply = 0;
+        }
     getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],
