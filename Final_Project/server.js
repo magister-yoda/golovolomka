@@ -2,8 +2,8 @@
 var Grass = require("./modules/Grass.js");
 var GrassEater = require("./modules/GrassEater.js");
 var Hunter = require("./modules/Hunter.js");
-var Predator = require("./modules/Terminator.js");
-var Trade = require("./modules/Titan.js");
+var Predator = require("./modules/Predator.js");
+var Trade = require("./modules/Trade.js");
 let random = require('./modules/random');
 
 grassArr = [];
@@ -20,7 +20,7 @@ predatorHashiv = 0;
 tradeHashiv = 0;
 
 
-function matrixGenerator(matrixSize, grass, eat, hunt, term, titan) {
+function matrixGenerator(matrixSize, grass, grassEater, hunter, predator, trade) {
     for (let i = 0; i < matrixSize; i++) {
         matrix[i] = [];
         for (let o = 0; o < matrixSize; o++) {
@@ -47,7 +47,7 @@ function matrixGenerator(matrixSize, grass, eat, hunt, term, titan) {
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 4;
     }
-    for (let i = 0; i < treda; i++) {
+    for (let i = 0; i < trade; i++) {
         let customX = Math.floor(random(matrixSize));
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 5;
@@ -79,17 +79,17 @@ function creatingObjects() {
                 grassHashiv++
             }
             else if (matrix[y][x] == 3) {
-                var hunt = new Hunter(x, y);
+                var hunter = new hunter(x, y);
                 hunterArr.push(hunter);
                 hunterHashiv++
             }
             else if (matrix[y][x] == 4) {
-                var term = new Predator(x, y);
+                var predator = new Predator(x, y);
                 predatorArr.push(predator);
                 predatorHashiv++
             }
             else if (matrix[y][x] == 5) {
-                var titan = new Trade(x, y);
+                var trade = new Trade(x, y);
                 tradeArr.push(trade);
                 tradeHashiv++
             }
