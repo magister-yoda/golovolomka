@@ -71,15 +71,15 @@ function creatingObjects() {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 2) {
                 var grassEater = new GrassEater(x, y);
-                eatArr.push(grassEater);
-                eatHashiv++;
+                grassEaterArr.push(grassEater);
+                grassEaterHashiv++;
             } else if (matrix[y][x] == 1) {
                 var grass = new Grass(x, y);
                 grassArr.push(grass);
                 grassHashiv++
             }
             else if (matrix[y][x] == 3) {
-                var hunter = new hunter(x, y);
+                var hunter = new Hunter(x, y);
                 hunterArr.push(hunter);
                 hunterHashiv++
             }
@@ -91,7 +91,7 @@ function creatingObjects() {
             else if (matrix[y][x] == 5) {
                 var trade = new Trade(x, y);
                 tradeArr.push(trade);
-                tradeHashiv++
+                tradeHashiv++;
             }
         }
     }
@@ -119,24 +119,24 @@ function game() {
             grassArr[i].mul();
         }
     }
-    if (grassEatarArr[0] !== undefined) {
-        for (var i in grassEatarArr) {
-            grassEatarArr[i].eat();
+    if (grassEaterArr[0] !== undefined) {
+        for (var i in grassEaterArr) {
+            grassEaterArr[i].eat();
         }
     }
     if (hunterArr[0] !== undefined) {
         for (var i in hunterArr) {
-            hunterArr[i].eat();
+            hunterArr[i].utel();
         }
     }
     if (predatorArr[0] !== undefined) {
         for (var i in predatorArr) {
-            predatorArr[i].eat();
+            predatorArr[i].kushat();
         }
     }
     if (tradeArr[0] !== undefined) {
         for (var i in tradeArr) {
-            tradeArr[i].eat();
+            tradeArr[i].sest();
         }
     }
 
@@ -144,7 +144,7 @@ function game() {
         matrix: matrix,
         grassCounter: grassHashiv,
         grassLiveCounter: grassArr.length,
-        grassEatarCounter: grassEatarHashiv,
+        grassEaterCounter: grassEaterHashiv,
         hunterCounter: hunterHashiv,
         predatorCounter: predatorHashiv,
         tradeCounter: tradeHashiv,
