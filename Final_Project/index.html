@@ -1,17 +1,18 @@
 <html>
 
+
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&amp;subset=cyrillic,cyrillic-ext,devanagari,greek,greek-ext,latin-ext,vietnamese"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
-    <script src="class.js"></script>
-    <script src="script.js"></script>
+    <meta charset="utf8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         canvas {
             display: block;
             margin: 0 auto;
+        }
+
+        div {
+            display: inline-block;
         }
 
         h1 {
@@ -38,6 +39,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Գույն</th>
                 <th scope="col">Նկարագրություն</th>
+                <th scope="col">Այս պահին կա</th>
             </tr>
         </thead>
         <tbody>
@@ -45,33 +47,51 @@
                 <th scope="row">1</th>
                 <td scope="row" style="background-color:green;"></td>
                 <td>Կանաչը խոտն է, որը բազմանում է 2 վայրկյանը մեկ:Խոտը տարածվում է մոխրագույն գետնի վրայով;:</td>
+                <td id="grassCount"></td>
+                <td id="grassLiveCount"></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td scope="row" style="background-color:orange;"></td>
-                <td>Դեղինը խոտակերն է, որը սնվում է խոտով: Նա ունի 80 կյանք, մեկ խոտ ուտելով նա բազմանում է:Խոտակերը քայլում
+                <td>Դեղինը խոտակերն է, որը սնվում է խոտով: Նա ունի 80 կյանք, մեկ խոտ ուտելով նա բազմանում է:Խոտակերը
+                    քայլում
                     է մոխրագույն գետնի վրայով:
+                <td id="grassEaterCount"></td>
+                <td id="grassEaterLiveCount"></td>
                 </td>
             </tr>
             <tr>
                 <th scope="row">3</th>
                 <td scope="row" style="background-color:red;"></td>
-                <td>Կարմիրը գիշատիչն է, որը սնվում է խոտակերով: Նա ունի 70 կյանք, երկու գիշատիչ ուտելով բազմանում է:Գիշատիչը
-                    քայլում է մոխրագույն գետնի և խոտի վրայով:</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td scope="row" style="background-color:blue;"></td>
-                <td>Կապույտը մարդն է, որը սնվում է խոտով և խոտակերով: Նա ունի 60 կյանք, խոտ և խոտակեր ուտելով բազմանում է:Մարդը
-                    քայլում է մոխրագույն գետնի և խոտի վրայով:</td>
+                <td>Կարմիրը գիշատիչն է, որը սնվում է խոտակերով: Նա ունի 70 կյանք, երկու գիշատիչ ուտելով բազմանում
+                    է:Գիշատիչը
+                    քայլում է մոխրագույն գետնի և խոտի վրայով:
+                    <td id="predatorCount"></td>
+                    <td id="predatorLiveCount"></td>
+                </td>
             </tr>
             <tr>
                 <th scope="row">5</th>
+                <td scope="row" style="background-color:blue;"></td>
+                <td>Կապույտը մարդն է, որը սնվում է խոտով և խոտակերով: Նա ունի 60 կյանք, խոտ և խոտակեր ուտելով բազմանում
+                    է:Մարդը
+                    քայլում է մոխրագույն գետնի և խոտի վրայով:
+                    <td id="tradeCount"></td>
+                    <td id="tradeLiveCount"></td>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
                 <td scope="row" style="background-color:black;"></td>
-                <td>Սևը որսորդն է, որը սպանում է խոտակերին և գիշատիչին: Նա ունի 50 կյանք և չի բազմանում:Որսորդը քայլում է
-                    մոխրագույն գետնի և խոտի վրայով</td>
+                <td>Սևը որսորդն է, որը սպանում է խոտակերին և գիշատիչին: Նա ունի 50 կյանք և չի բազմանում:Որսորդը քայլում
+                    է
+                    մոխրագույն գետնի և խոտի վրայով
+                    <td id="hunterCount"></td>
+                    <td id="hunterLiveCount"></td>
+                </td>
             </tr>
         </tbody>
     </table>
 </body>
+
 </html>

@@ -1,10 +1,11 @@
-
+let count =true;
 var Grass = require("./modules/Grass.js");
 var GrassEater = require("./modules/GrassEater.js");
 var Hunter = require("./modules/Hunter.js");
 var Predator = require("./modules/Predator.js");
 var Trade = require("./modules/Trade.js");
 let random = require('./modules/random');
+let Water = require('./modules/Water.js');
 
 grassArr = [];
 grassEaterArr = [];
@@ -76,17 +77,17 @@ function creatingObjects() {
             } else if (matrix[y][x] == 1) {
                 var grass = new Grass(x, y);
                 grassArr.push(grass);
-                grassHashiv++
+                grassHashiv++;
             }
             else if (matrix[y][x] == 3) {
                 var hunter = new Hunter(x, y);
                 hunterArr.push(hunter);
-                hunterHashiv++
+                hunterHashiv++;
             }
             else if (matrix[y][x] == 4) {
                 var predator = new Predator(x, y);
                 predatorArr.push(predator);
-                predatorHashiv++
+                predatorHashiv++;
             }
             else if (matrix[y][x] == 5) {
                 var trade = new Trade(x, y);
@@ -106,11 +107,19 @@ function game() {
 
     exanak++;
     if (exanak <= 10){
-        weather = "summer"
-    }else if (exanak <= 20){
-        weather = "autumn"
-    }else if (exanak > 20){
-        exanak = 0
+        weather = "summer";
+    }
+    else if (exanak <= 20){
+        weather = "autumn";
+    }
+    else if (exanak <= 30){
+        weather = "winter";
+    } 
+    else if (exanak <=40 ){
+        weather = "spring";
+    } 
+    else if (exanak = 50){
+        exanak = 0;
     }
 
 
@@ -145,9 +154,13 @@ function game() {
         grassCounter: grassHashiv,
         grassLiveCounter: grassArr.length,
         grassEaterCounter: grassEaterHashiv,
+        grassEaterLiveCounter: grassEaterArr.length,
         hunterCounter: hunterHashiv,
+        hunterLiveCounter: hunterArr.length,
         predatorCounter: predatorHashiv,
+        predatorLiveCounter: predatorArr.length,
         tradeCounter: tradeHashiv,
+        tradeLiveCounter: tradeArr.length,
         weather: weather
     }
 
@@ -157,4 +170,4 @@ function game() {
 
 
 
-setInterval(game, 1000)
+setInterval(game, 300)
