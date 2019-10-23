@@ -1,11 +1,10 @@
-let count =true;
 var Grass = require("./modules/Grass.js");
 var GrassEater = require("./modules/GrassEater.js");
 var Hunter = require("./modules/Hunter.js");
 var Predator = require("./modules/Predator.js");
 var Trade = require("./modules/Trade.js");
 let random = require('./modules/random');
-let Water = require('./modules/Water.js');
+// let Water = require('./modules/Water.js');
 
 grassArr = [];
 grassEaterArr = [];
@@ -16,7 +15,7 @@ matrix = [];
 
 grassHashiv = 0;
 grassEaterHashiv = 0;
-huntHashiv = 0;
+hunterHashiv = 0;
 predatorHashiv = 0;
 tradeHashiv = 0;
 
@@ -54,7 +53,7 @@ function matrixGenerator(matrixSize, grass, grassEater, hunter, predator, trade)
         matrix[customY][customX] = 5;
     }
 }
-matrixGenerator(20, 25, 20, 15, 10, 2);
+matrixGenerator(90, 25, 20, 15, 10, 2);
 
 var express = require('express');
 var app = express();
@@ -130,22 +129,22 @@ function game() {
     }
     if (grassEaterArr[0] !== undefined) {
         for (var i in grassEaterArr) {
-            grassEaterArr[i].eat();
+            grassEaterArr[i].mul();
         }
     }
     if (hunterArr[0] !== undefined) {
         for (var i in hunterArr) {
-            hunterArr[i].utel();
+            hunterArr[i].mul();
         }
     }
     if (predatorArr[0] !== undefined) {
         for (var i in predatorArr) {
-            predatorArr[i].kushat();
+            predatorArr[i].mul();
         }
     }
     if (tradeArr[0] !== undefined) {
         for (var i in tradeArr) {
-            tradeArr[i].sest();
+            tradeArr[i].mul();
         }
     }
 
@@ -153,15 +152,20 @@ function game() {
         matrix: matrix,
         grassCounter: grassHashiv,
         grassLiveCounter: grassArr.length,
+
         grassEaterCounter: grassEaterHashiv,
         grassEaterLiveCounter: grassEaterArr.length,
+
         hunterCounter: hunterHashiv,
         hunterLiveCounter: hunterArr.length,
+
         predatorCounter: predatorHashiv,
         predatorLiveCounter: predatorArr.length,
+
         tradeCounter: tradeHashiv,
         tradeLiveCounter: tradeArr.length,
-        weather: weather
+                               
+        weather: weather,
     }
 
     
@@ -170,4 +174,4 @@ function game() {
 
 
 
-setInterval(game, 300)
+setInterval(game, 3000)

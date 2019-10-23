@@ -23,9 +23,11 @@ module.exports = class Predator extends LiveForm {
         return super.chooseCell(character);
     }
     mul() {
+        this.multiply++;
         let emptyCells = this.chooseCell(0);
         let newCell = random(emptyCells);
         if (newCell) {
+            predatorHashiv++
             let x = newCell[0];
             let y = newCell[1];
             matrix[y][x] = 3;
@@ -46,6 +48,11 @@ module.exports = class Predator extends LiveForm {
             for (let i in grassEaterArr) {
                 if (grassEaterArr[i].x == x && grassEaterArr[i].y == y) {
                     grassEaterArr.splice(i, 1)
+                }
+            }
+            for (let i in grassArr) {
+                if (grassArr[i].x == x && grassArr[i].y == y) {
+                    grassArr.splice(i, 1)
                 }
             }
             this.y = y;

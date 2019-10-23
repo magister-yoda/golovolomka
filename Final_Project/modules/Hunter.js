@@ -33,13 +33,15 @@ module.exports = class Hunter extends LiveForm
             }
         }
         return found;
-    }
-    }
+   } 
+
     mul() 
     {
+        this.multiply++;
         let emptyCells = this.chooseCell(0);
         let newCell = random(emptyCells);
         if (newCell) {
+            hunterHashiv++;
             let x = newCell[0];
             let y = newCell[1];
             matrix[y][x] = 4;
@@ -48,10 +50,12 @@ module.exports = class Hunter extends LiveForm
             this.jizn = 60;
         }
     }
-    utel() {
+    utel() 
+    {
+        let emptyCells7 = this.chooseCell(1)
         let emptyCells = this.chooseCell(2);
         let emptyCells6 = this.chooseCell(3)
-        let newCell = random(emptyCells.concat(emptyCells6));
+        let newCell = random(emptyCells.concat(emptyCells6).concat(emptyCells7));
         if (newCell) {
             this.jizn++;
             let x = newCell[0];
@@ -68,6 +72,11 @@ module.exports = class Hunter extends LiveForm
                     predatorArr.splice(i, 1)
                 }
             }
+            for (let i in grassArr) {
+                if (grassArr[i].x == x && grassArr[i].y == y) {
+                    grassArr.splice(i, 1)
+                }
+            }
             this.y = y;
             this.x = x;
             if (this.jizn >= 15) {
@@ -77,7 +86,8 @@ module.exports = class Hunter extends LiveForm
             this.move()
         }
     }
-    move() {
+    move() 
+    {
         this.jizn--;
         let emptyCells = this.chooseCell(0);
         let emptyCells2 = this.chooseCell(1);
@@ -94,11 +104,6 @@ module.exports = class Hunter extends LiveForm
                     hunterArr.splice(i, 1)
                 }
             }
-            for (let i in grassArr) {
-                if (grassArr[i].x == x && grassArr[i].y == y) {
-                    grassArr.splice(i, 1)
-                }
-            }
             this.y = y;
             this.x = x;
         }
@@ -106,7 +111,8 @@ module.exports = class Hunter extends LiveForm
             this.die();
         }
     }
-    die() {
+    die() 
+    {
         matrix[this.y][this.x] = 0;
         for (let i in hunterArr) {
             if (hunterArr[i].x == this.x && hunterArr[i].y == this.y) {

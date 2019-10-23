@@ -4,7 +4,7 @@ var random = require("./random");
 module.exports = class Grass extends LiveForm 
 {
     constructor(x, y) {
-    super(x,y); 
+        super(x,y); 
         this.multiply = 0;
     }
     getNewCoordinates() {
@@ -23,17 +23,17 @@ module.exports = class Grass extends LiveForm
         this.getNewCoordinates();
         return super.chooseCell(character);
     }
-    mul() {
+    mul()
+     {
         this.multiply++;
         let emptyCells = this.chooseCell(0);
         let newCell = random(emptyCells);
 
-        if (newCell && this.multiply >= 8) {
+        if (newCell && this.multiply >= 0.1) {
+            grassHashiv++
             let x = newCell[0];
             let y = newCell[1];
-
             matrix[y][x] = 1;
-
             let grass = new Grass(x, y);
             grassArr.push(grass);
             this.multiply = 0;
