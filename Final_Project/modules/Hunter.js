@@ -35,7 +35,8 @@ module.exports = class Hunter extends LiveForm
         return found;
     }
     }
-    mul() {
+    mul() 
+    {
         let emptyCells = this.chooseCell(0);
         let newCell = random(emptyCells);
         if (newCell) {
